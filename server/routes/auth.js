@@ -1,14 +1,11 @@
 import express from 'express';
 import authController from '../controllers/authController.js';
+import validate from '../middleware/validate.js';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Hello World');
-})
+router.post('/register',validate('register'), authController.register);
 
-router.post('/register', authController.register);
-
-router.post('/login', authController.login);
+router.post('/login',validate('login'), authController.login);
 
 export default router;
