@@ -5,10 +5,10 @@ import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/',auth.verifyToken, authController.checkLogin)
+router.get('/', auth.verifyToken, authController.checkLogin);
 
-router.post('/register',validate('register'), authController.register);
+router.post('/register', validate('register'), authController.register);
 
-router.post('/login',validate('login'), authController.login);
+router.post('/login', validate('login'), authController.login);
 
 export default router;
