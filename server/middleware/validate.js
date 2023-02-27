@@ -10,6 +10,7 @@ export default (validator) => {
             next();
         } catch (err) {
             if (err.isJoi) {
+                console.log(err.message)
                 return next(createHttpError(422, { message: err.message }));
             }
             next(createHttpError(500));
