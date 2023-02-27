@@ -8,9 +8,9 @@ const router = express.Router();
 // get all product
 router.get('/', postController.getAllPosts);
 // create a product
-router.post('/create', validate('post'), auth.verifyToken, postController.createPost);
+router.post('/create', auth.verifyToken, postController.createPost);
 // update a product
-router.put('/:slug', validate('post'), auth.verifyTokenAndUserAuthorization, postController.updatePost);
+router.put('/:id', validate('post'), auth.verifyTokenAndUserAuthorization, postController.updatePost);
 // soft-delete a product
 router.delete('/:id', auth.verifyTokenAndUserAuthorization, postController.destroyPost);
 // restore a product
