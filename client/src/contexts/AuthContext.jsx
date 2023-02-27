@@ -68,10 +68,19 @@ export default function AuthContextProvider({ children }) {
         }
     };
 
+    // Logout
+    const logoutUser = () => {
+        localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME);
+        dispatch({
+            type: 'SET_AUTH',
+            payload: { isAuthenticated: false, user: null },
+        });
+    };
 
     const authContextData = {
         registerUser,
         loginUser,
+        logoutUser,
         authState,
     };
 
