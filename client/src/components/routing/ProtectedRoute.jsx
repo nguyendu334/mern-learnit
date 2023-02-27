@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -24,7 +24,7 @@ export default function ProtectedRoute ({ component: Component, ...rest }) {
                         <Component {...rest} {...props} />
                     </>
                 ) : (
-                    <Navigate to="/login" />
+                    <Redirect to="/login" />
                 )
             }
         />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Landing from './components/layouts/Landing';
 import Auth from './views/Auth';
@@ -11,12 +11,12 @@ function App() {
     return (
         <AuthContextProvider>
             <Router>
-                <Routes>
-                    <Route path="/" element={<Landing />} />
-                    <Route path="/login" element={<Auth authRoute="login" />} />
-                    <Route path="/register" element={<Auth authRoute="register" />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                </Routes>
+                <Switch>
+                    <Route exact path="/" component={Landing} />
+                    <Route exact path="/login" render={(props) => <Auth {...props} authRoute="login" />} />
+                    <Route exact path="/register" render={(props) => <Auth {...props} authRoute="register" />} />
+                    <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+                </Switch>
             </Router>
         </AuthContextProvider>
     );
