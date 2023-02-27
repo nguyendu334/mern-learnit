@@ -26,7 +26,7 @@ const authController = {
             const savedUser = await user.save();
             res.json({ success: true, message: 'User created successfully', user: savedUser });
         } catch (err) {
-            res.status(400).send(err);
+            res.status(400).json({ success: false, message: 'Internal server error' });
         }
     },
 

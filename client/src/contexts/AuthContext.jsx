@@ -56,7 +56,21 @@ export default function AuthContextProvider({ children }) {
         }
     };
 
+    // Register
+    const registerUser = async (userForm) => {
+        try {
+            const response = await axios.post(`${apiUrl}/register`, userForm);
+            await loadUser();
+            return response.data;
+        } catch (error) {
+            if (error.response.data) return error.response.data;
+            else return { success: false, message: error.message };
+        }
+    };
+
+
     const authContextData = {
+        registerUser,
         loginUser,
         authState,
     };

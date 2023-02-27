@@ -8,14 +8,12 @@ import AlertMessage from '../layouts/AlertMessage';
 
 export default function Login() {
     const { loginUser } = useContext(AuthContext);
-
     const [loginForm, setLoginForm] = useState({
         username: '',
         password: '',
     });
 
-    const [alert, setAlert] = useState(null)
-
+    const [alert, setAlert] = useState(null);
     const { username, password } = loginForm;
 
     const onChangeLoginForm = (event) => {
@@ -27,7 +25,7 @@ export default function Login() {
         try {
             const loginData = await loginUser(loginForm);
             if (!loginData.success) {
-                setAlert({ type: 'danger', message: loginData.message });
+                setAlert({ type: 'danger', message: 'Login Failed' });
                 setTimeout(() => setAlert(null), 5000);
             }
         } catch (error) {
@@ -37,7 +35,9 @@ export default function Login() {
     return (
         <>
             <Form className="my-4" onSubmit={login}>
-            <AlertMessage info={alert} />
+                <h1>Login</h1>
+                <h4>Keep track of what you are learning</h4>
+                <AlertMessage info={alert} />
                 <Form.Group className="mt-4 mb-4">
                     <Form.Control
                         type="text"

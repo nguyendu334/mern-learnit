@@ -8,6 +8,7 @@ const register = Joi.object({
 const login = Joi.object({
     username: Joi.string().min(1).max(20).required(),
     password: Joi.string().min(6).required(),
+
 });  
 
 const post = Joi.object({
