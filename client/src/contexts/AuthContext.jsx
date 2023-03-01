@@ -39,7 +39,7 @@ export default function AuthContextProvider({ children }) {
     useEffect(() => {
         const asyncFn = async () => loadUser();
         asyncFn();
-      }, []);
+    }, []);
 
     // Login
     const loginUser = async (userForm) => {

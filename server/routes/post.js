@@ -10,7 +10,7 @@ router.get('/', postController.getAllPosts);
 // create a product
 router.post('/create', auth.verifyToken, postController.createPost);
 // update a product
-router.put('/:id', validate('post'), auth.verifyTokenAndUserAuthorization, postController.updatePost);
+router.put('/:id', auth.verifyTokenAndUserAuthorization, postController.updatePost);
 // soft-delete a product
 router.delete('/:id', auth.verifyTokenAndUserAuthorization, postController.destroyPost);
 // restore a product

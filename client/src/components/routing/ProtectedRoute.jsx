@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { AuthContext } from '../../contexts/AuthContext';
 import NavbarMenu from './../layouts/NavbarMenu';
 
-export default function ProtectedRoute ({ component: Component, ...rest }) {
+export default function ProtectedRoute({ component: Component, ...rest }) {
     const {
         authState: { authLoading, isAuthenticated },
     } = useContext(AuthContext);

@@ -27,7 +27,7 @@ const postController = {
     updatePost: async (req, res) => {
         try {
             const post = await Post.findOneAndUpdate(
-                { id: req.params.id },
+                { _id: req.params.id },
                 {
                     ...req.body,
                     url: req.body.url.startsWith('https://') ? req.body.url : `https://${req.body.url}`,

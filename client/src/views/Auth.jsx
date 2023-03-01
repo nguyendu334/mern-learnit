@@ -28,9 +28,7 @@ export default function Auth({ authRoute }) {
     return (
         <div className="landing">
             <div className="dark-overlay">
-                <div className="landing-inner">
-                    {body}
-                </div>
+                <div className="landing-inner">{body}</div>
             </div>
         </div>
     );
